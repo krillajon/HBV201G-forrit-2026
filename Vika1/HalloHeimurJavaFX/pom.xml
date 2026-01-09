@@ -17,7 +17,8 @@
         <javafx.version>25.0.1</javafx.version>
         <java.release>25</java.release>
     </properties>
-
+<!-- Hvaða forritasöfn þarf að nota
+    -->
 <dependencies>
     <dependency>
         <groupId>org.openjfx</groupId>
@@ -30,6 +31,7 @@
         <version>${javafx.version}</version>
     </dependency>
 </dependencies>
+    <!-- Keyrslan -->
     <build>
         <plugins>
             <!-- Java útgáfa -->
