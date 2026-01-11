@@ -1,13 +1,8 @@
 package is.vidmot;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.Objects;
 
 /******************************************************************************
  *  Nafn    : Ebba Þóra Hvannberg
@@ -17,7 +12,6 @@ import java.util.Objects;
  *
  *****************************************************************************/
 public class HalloHeimurApp extends javafx.application.Application {
-
     /**
      * Ræsir appið
      *
@@ -26,7 +20,6 @@ public class HalloHeimurApp extends javafx.application.Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-
         // Smíða loader fyrir notendaviðmótið sem er geymt í skránni hello-view.fxml
         // Gætið þess að .fxml skráin sé undir resources/is/vidmot
            FXMLLoader fxmlLoader = new FXMLLoader(HalloHeimurApp.class.getResource("hello-view.fxml"));
@@ -38,13 +31,12 @@ public class HalloHeimurApp extends javafx.application.Application {
         stage.setScene(scene);
         // Birta gluggann
         stage.show();
-
     }
 
     /**
      * Aðalforritið sem ræsir appið
      *
-     * @param args
+     * @param args ónotað
      */
     public static void main(String[] args) {
         // Ræsa forritið
