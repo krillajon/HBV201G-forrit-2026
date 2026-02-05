@@ -77,7 +77,7 @@ public class PersonDialog extends Dialog<Person> {
                 return null;
             }
         };
-		setResultConverter(personResultConverter);
+		setResultConverter(personResultConverter); // aðferð á Dialog<R>
 	}
 
 	public Pane createGridPane() {
