@@ -1,8 +1,8 @@
-package com.example.dialogdemo;
+package com.example.dialogdemo.vidmot;
 
 import java.util.Optional;
 
-import com.example.vinnsla.Person;
+import com.example.dialogdemo.vinnsla.Person;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

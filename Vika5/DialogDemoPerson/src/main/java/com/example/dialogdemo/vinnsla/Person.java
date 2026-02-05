@@ -1,4 +1,4 @@
-package com.example.vinnsla;
+package com.example.dialogdemo.vinnsla;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

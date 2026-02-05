@@ -1,6 +1,6 @@
-package com.example.dialogdemo;
+package com.example.dialogdemo.vidmot;
 
-import com.example.vinnsla.Person;
+import com.example.dialogdemo.vinnsla.Person;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
