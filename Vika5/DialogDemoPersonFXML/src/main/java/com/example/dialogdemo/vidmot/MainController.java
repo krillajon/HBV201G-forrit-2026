@@ -5,8 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.BorderPane;
-
 import java.util.Optional;
 
 public class MainController {
@@ -17,8 +15,10 @@ public class MainController {
      public void onAdd(ActionEvent actionEvent) {
 
         Dialog<Person> personDialog = new PersonDialog(new Person("", ""));
+        // opnar dialogin í personDialog og fær til baka svarið í result
         Optional<Person> result = personDialog.showAndWait();
         if (result.isPresent()) {
+            ///  ýtt var á ok hnappinn
             Person person = result.get();
             listView.getItems().add(person+"");
         }
