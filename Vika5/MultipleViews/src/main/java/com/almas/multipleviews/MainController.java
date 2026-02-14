@@ -6,6 +6,6 @@ package com.almas.multipleviews;
 public class MainController {
 
     public void onAbout() {
-        ViewSwitcher.switchTo(View.ABOUT);
+        ViewSwitcher.switchTo(View.ABOUT, true);
     }
 }

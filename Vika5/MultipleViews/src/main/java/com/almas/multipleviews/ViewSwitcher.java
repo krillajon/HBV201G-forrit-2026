@@ -10,54 +10,66 @@ import java.util.Map;
 
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
+ *
+ * EÞH - changed to include caching of controllers
  */
 public class ViewSwitcher {
 
     private static final Map<View, Parent> cache = new HashMap<>();
 
+    // viðbót fyrir controllers
+    private static final Map<View, Object> controllers = new HashMap<>();
     private static Scene scene;
 
     /**
-     * Setur núverandi senu í ViewSwitcher sem scene - enginn breyting á glugga
-     *
-     * @param scene senan
+     * setur scenuna scene
+     * @param scene
      */
     public static void setScene(Scene scene) {
         ViewSwitcher.scene = scene;
     }
 
     /**
-     * Skipta yfir í viðmótstré sem er lýst í view
-     *
-     * @param view nafn á .fxml skrá
+     * Skiptir yfir viðmótstré í senunni
+     * @param view rót viðmótstrésins
+     * @param isCache á að nota skyndiminni?
      */
-    public static void switchTo(View view) {
+    public static void switchTo(View view, boolean isCache) {
         if (scene == null) {
             System.out.println("No scene was set");
             return;
         }
-
         try {
             Parent root;
-            // fletta upp í skyndiminni
-            if (cache.containsKey(view)) {
-                  root = cache.get(view);
-                // annars lesa úr .fxml skrá
-            } else {
-                System.out.println("Loading from FXML");
-                // lesa inn .fxml skrána og rótin á viðmótstrénu verður root
-                root = FXMLLoader.load(
-                        ViewSwitcher.class.getResource(view.getFileName())
-                );
-                // geyma í skyndiminni - tengja saman view og root
-                cache.put(view, root);
-            }
 
-            // setja rótina í núverandi senu
+            if (cache.containsKey(view) && isCache) {
+                System.out.println("Loading from cache");
+                root = cache.get(view);
+            }
+            else {
+                System.out.println("Loading from FXML "+view.getFileName());
+                FXMLLoader loader = new FXMLLoader(ViewSwitcher
+                        .class.getResource(view.getFileName()));
+                root = loader.load();
+
+                cache.put(view, root);
+             //   scene.setRoot(root);
+                controllers.put(view, loader.getController());
+            }
             scene.setRoot(root);
 
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Fletta upp controller klasa fyrir viðmótstréð
+     * @param v viðmótstré
+     * @return controller
+     */
+    public static Object lookup(View v) {
+        return controllers.get(v);
     }
 }

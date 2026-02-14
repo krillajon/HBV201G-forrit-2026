@@ -6,6 +6,6 @@ package com.almas.multipleviews;
 public class LoginController {
 
     public void onLogin() {
-        ViewSwitcher.switchTo(View.MAIN);
+        ViewSwitcher.switchTo(View.MAIN, true);
     }
 }
